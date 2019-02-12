@@ -1,16 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatMenuModule} from '@angular/material/menu';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatFormFieldModule} from '@angular/material';
-import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material';
-import {MatPaginatorModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppMaterialModule} from './app.matmodule';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +19,6 @@ import { AdditionalfiltersComponent} from './navbar/additionalfilters/additional
 import { AdditionalfiltersDialogComponent} from './navbar/filterdialog/filterdialog.component';
 import { PaceComponent} from './navbar/pace/pace.component';
 import { NavSearchComponent} from './navbar/navsearch/navsearch.component';
-import { PlayerTableComponents} from './playertable/playertable.component';
 import {PlayersDataComponent} from './playertable/playersdata/playersdata.component';
 
 
@@ -52,16 +45,9 @@ import {PlayersDataComponent} from './playertable/playersdata/playersdata.compon
     AppRoutingModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule,
-    MatGridListModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule
+    AppMaterialModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
   providers: [],
