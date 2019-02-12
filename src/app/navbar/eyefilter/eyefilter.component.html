@@ -1,0 +1,9 @@
+<div class="eyefilter-dd inline-style">
+
+  <mat-form-field>
+    <mat-select placeholder="EyeFilter" [formControl]="eyefilters" multiple>
+      <mat-option *ngFor="let filter of filterList" [value]="filter" class="custom-font-size">{{filter}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

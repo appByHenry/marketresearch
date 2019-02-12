@@ -1,0 +1,10 @@
+<div class="league-dd inline-style">
+  <mat-form-field>
+    <mat-select placeholder="League" [(value)]="selected">
+      <mat-option *ngFor="let league of leagues" [value]="league.value">
+        {{league.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="position-dd inline-style">
+  <mat-form-field>
+    <mat-select placeholder="Player Position" [(value)]="selected">
+      <mat-option *ngFor="let position of positions" [value]="position.value">
+        {{position.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

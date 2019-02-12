@@ -1,0 +1,10 @@
+<div class="position-dd inline-style ">
+  <mat-form-field>
+    <mat-select placeholder="Nationality" [(value)]="selected">
+      <mat-option *ngFor="let nation of nationality" [value]="nation.value">
+        {{nation.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
