@@ -8,6 +8,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,11 @@ import { EyefilterComponent} from './navbar/eyefilter/eyefilter.component';
 import { AdditionalfiltersComponent} from './navbar/additionalfilters/additionalfilters.component';
 import { AdditionalfiltersDialogComponent} from './navbar/filterdialog/filterdialog.component';
 import { PaceComponent} from './navbar/pace/pace.component';
+import { NavSearchComponent} from './navbar/navsearch/navsearch.component';
+import { PlayerTableComponents} from './playertable/playertable.component';
+import {PlayersDataComponent} from './playertable/playersdata/playersdata.component';
+
+
 
 
 @NgModule({
@@ -35,7 +43,9 @@ import { PaceComponent} from './navbar/pace/pace.component';
     EyefilterComponent,
     AdditionalfiltersDialogComponent,
     AdditionalfiltersComponent,
-    PaceComponent
+    PaceComponent,
+    NavSearchComponent,
+    PlayersDataComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,9 @@ import { PaceComponent} from './navbar/pace/pace.component';
     ReactiveFormsModule,
     MatDialogModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
   providers: [],
