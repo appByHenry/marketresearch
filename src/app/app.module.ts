@@ -2,9 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppMaterialModule} from './app.matmodule';
+import {PlayerSkillsService} from './services/playerskills.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +21,6 @@ import { AdditionalfiltersDialogComponent} from './navbar/filterdialog/filterdia
 import { PaceComponent} from './navbar/pace/pace.component';
 import { NavSearchComponent} from './navbar/navsearch/navsearch.component';
 import {PlayersDataComponent} from './playertable/playersdata/playersdata.component';
-
-
 
 
 @NgModule({
@@ -47,10 +46,11 @@ import {PlayersDataComponent} from './playertable/playersdata/playersdata.compon
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
-  providers: [],
+  providers: [PlayerSkillsService],
   bootstrap: [AppComponent, EyefilterComponent]
 })
 export class AppModule { }
