@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppMaterialModule} from './app.matmodule';
 import {PlayerSkillsService} from './services/playerskills.service';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +48,8 @@ import {PlayersDataComponent} from './playertable/playersdata/playersdata.compon
     FormsModule,
     ReactiveFormsModule,
     AppMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
   providers: [PlayerSkillsService],

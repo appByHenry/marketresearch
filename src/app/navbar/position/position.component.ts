@@ -1,5 +1,5 @@
 
-import {Component} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 export interface Position {
   value: string;
@@ -9,7 +9,8 @@ export interface Position {
 @Component({
   selector: 'app-position-navbar',
   templateUrl: './position.component.html',
-  styleUrls: ['position.component.scss']
+  styleUrls: ['position.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class PositionComponent {
