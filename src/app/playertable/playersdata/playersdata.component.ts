@@ -3,7 +3,8 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {ThemePalette} from '@angular/material/core';
 import {IPlayerskills} from '../../Interface/playerskills';
-import Playersinfo from '../../../mockdata/fifaplayers.json';
+// import Playersinfo from '../../../mockdata/fifaplayers.json';
+import Playersinfo from '../../../mockdata/compact-players.json';
 
 export interface ChipColor {
   name: string;
@@ -25,10 +26,7 @@ export interface ChipColor {
 })
 
 export class PlayersDataComponent implements OnInit {
-  centered = true;
-  disabled = false;
-  unbounded = true;
-  radius: 10;
+
 
   displayedColumns = ['PlayerName', 'Rating', 'Position', 'Moves', 'Weak', 'ATK', 'DEF', 'Pace', 'Shoot', 'Pass', 'Defend', 'Dribbling', 'Physical', 'Height'];
   dataSource: MatTableDataSource<IPlayerskills>;
@@ -81,7 +79,60 @@ function formatPlayersData(playerObj: any): any {
     Defend: playerObj.defending,
     Dribbling: playerObj.dribbling,
     Physical: playerObj.physicality,
-    Height: playerObj.height
+    Height: playerObj.height,
+    ps4_last: playerObj.ps4_last,
+    ps4_min: playerObj.ps4_min,
+    ps4_max: playerObj.ps4_max,
+    ps4_prp: playerObj.ps4_prp,
+    xbox_last: playerObj.xbox_last,
+    xbox_min: playerObj.xbox_min,
+    xbox_max: playerObj.xbox_max,
+    xbox_prp: playerObj.xbox_prp,
+    pc_last: playerObj.pc_last,
+    pc_min: playerObj.pc_min,
+    pc_max: playerObj.pc_max,
+    pc_prp: playerObj.pc_prp,
+    player_extended_name: playerObj.player_extended_name,
+    quality: playerObj.quality,
+    revision: playerObj.revision,
+    origin: playerObj.origin,
+    club: playerObj.club,
+    league: playerObj.league,
+    nationality: playerObj.nationality,
+    age: playerObj.age,
+    date_of_birth: playerObj.date_of_birth,
+    intl_rep: playerObj.intl_rep,
+    added_date: playerObj.added_date,
+    weight: playerObj.weight,
+    pace_acceleration: playerObj.pace_acceleration,
+    pace_sprint_speed: playerObj.pace_sprint_speed,
+    shoot_positioning: playerObj.shoot_positioning,
+    shoot_finishing: playerObj.shoot_finishing,
+    shoot_shot_power: playerObj.shoot_shot_power,
+    shoot_long_shots: playerObj.shoot_long_shots,
+    shoot_volleys: playerObj.shoot_volleys,
+    shoot_penalties: playerObj.shoot_penalties,
+    pass_vision: playerObj.pass_vision,
+    pass_crossing: playerObj.pass_crossing,
+    pass_free_kick: playerObj.pass_free_kick,
+    pass_short: playerObj.pass_short,
+    pass_long: playerObj.pass_long,
+    pass_curve: playerObj.pass_curve,
+    drib_agility: playerObj.drib_agility,
+    drib_balance: playerObj.drib_balance,
+    drib_reactions: playerObj.drib_reactions,
+    drib_ball_control: playerObj.drib_ball_control,
+    drib_dribbling: playerObj.drib_dribbling,
+    drib_composure: playerObj.drib_composure,
+    def_interceptions: playerObj.def_interceptions,
+    def_heading: playerObj.def_heading,
+    def_marking: playerObj.def_marking,
+    def_stand_tackle: playerObj.def_stand_tackle,
+    def_slid_tackle: playerObj.def_slid_tackle,
+    phys_jumping: playerObj.phys_jumping,
+    phys_stamina: playerObj.phys_stamina,
+    phys_strength: playerObj.phys_strength,
+    phys_aggression: playerObj.phys_aggression
   };
 }
 

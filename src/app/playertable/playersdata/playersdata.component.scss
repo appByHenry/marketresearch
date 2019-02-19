@@ -37,7 +37,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-detail {
   overflow: hidden;
-  display: flex;
+  display: block;
 }
 
 
@@ -66,28 +66,31 @@ tr.example-element-row:not(.example-expanded-row):active {
  // Below styles for player card.
 
 .example-card {
-  max-width: 500px;
+  // min-width: 10%;
 }
-
+.mat-tab-group {
+  border-radius: 5px !important;
+}
+.example-card-playerbio{
+  width: 100%;
+}
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
 .palyercard-margin{
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 
 .mat-left-chips {
-  width: 100px;
-  margin-right: 10px;
+  width: 45%;
+  margin-right: 5px;
 }
 .mat-right-chips {
-  width: 100px;
-  margin-right: 10px;
+  width: 45%;
+  margin-left: 5px;
 }
-
-.shadowbox{
-  width: 80px;
+.shadowstyle{
   padding: 10px 10px;
   margin: 2px;
   color: #000000a8;
@@ -95,4 +98,105 @@ tr.example-element-row:not(.example-expanded-row):active {
   border-radius: 10px;
   font-size: 0.8rem;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.shadowbox{
+  //width: 80px;
+  text-align: center;
+}
+.shadowboxwidth{
+  text-align: center;
+}
+
+.margin-divider{
+  //margin: 0px 10px;
+  vertical-align: top;
+}
+
+.rating-number-style{
+  margin-top:10px;
+}
+
+.ratingfontstyle{
+  font-size: 0.95rem;
+}
+
+.playerbio-container, .palyerskills-container{
+  vertical-align: top;
+  display: inline-block;
+}
+.playerbio-container{
+  width: 24%;
+  margin-right: 10px;
+}
+
+.palyerskills-container{
+  width: 74%;
+}
+
+.palyerbio{
+  display: block;
+  width: 100%;
+}
+
+.center-align-div{
+  text-align: center;
+}
+
+.center-header{
+  justify-content: center;
+}
+
+.example-ripple-container {
+  padding: 20px 0px;
+}
+.each-price{
+  margin: 5px 0px;
+}
+
+.xbox-div, .ps4-div, .pc-div{
+  width: 31%;
+  margin: 0px 10px;
+}
+.mat-tab-label {
+  height: 45px !important;
+  padding: 0 10px !important;
+  min-width: 90px !important;
+}
+
+.outer-div-bio{
+  padding: 10px;
+}
+.margin-space{
+  margin-bottom: 5px;
+}
+
+.mat-tab-group {
+  box-shadow: none !important;
+}
+.player-skills-bio{
+  width: 29%;
+  margin: 0px 9px;
+  vertical-align: top;
+  height: 175px;
+}
+.top-margin{
+  margin-top: 20px;
+}
+.skill-header-font-style{
+  font-size: 1rem;
+}
+.skill-header, .skill-rating-style{
+
+}
+
+.skill-header{
+  width: 75%;
+}
+.skill-rating-style{
+  width: 24%;
+  text-align: end;
+}
+
+.space-divider{
+  margin-bottom: 15px;
 }
