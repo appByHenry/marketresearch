@@ -1,15 +1,14 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Component, OnInit, Output, ViewChild, ViewEncapsulation, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Subscription} from 'rxjs/index';
+import {MatPaginator, MatSort, MatTableDataSource, MatTable} from '@angular/material';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {ThemePalette} from '@angular/material/core';
 import {IPlayerskills} from '../../Interface/playerskills';
 // import Playersinfo from '../../../mockdata/fifaplayers.json';
-import Playersinfo from '../../../mockdata/compact-players.json';
+import Playersinfo from '../../../mockdata/small_palyers_list.json';
+import {DataService} from '../../services/dropdownSelection.service';
+import * as _ from 'underscore';
 
-export interface ChipColor {
-  name: string;
-  color: ThemePalette;
-}
 
 @Component({
   selector: 'app-player-overview',
@@ -28,30 +27,48 @@ export interface ChipColor {
 export class PlayersDataComponent implements OnInit {
 
 
+  message: any;
   displayedColumns = ['PlayerName', 'Rating', 'Position', 'Moves', 'Weak', 'ATK', 'DEF', 'Pace', 'Shoot', 'Pass', 'Defend', 'Dribbling', 'Physical', 'Height'];
   dataSource: MatTableDataSource<IPlayerskills>;
+  playertableData: MatTableDataSource<IPlayerskills>;
+  // let ids:string = [];
   // expandedElement: MatTableDataSource<IPlayerskills> | null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  availableColors: ChipColor[] = [
-    {name: 'Primary', color: 'primary'}
-  ];
-
-  constructor() {
+  constructor(private data: DataService) {
     const playersData = Array.from(Playersinfo, (key, val) => formatPlayersData(key));
     // console.log(playersData);
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(playersData);
-    // this.expandedElement = new MatTableDataSource(playersData);
+    this.playertableData = new MatTableDataSource(playersData);
     console.log('In constructor', this.dataSource);
   }
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => {
+      this.message = message;
+      this.filterBasedonSelection(message);
+      console.log('message', message);
+    });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
     console.log('In ngOninti');
   }
-
+  filterBasedonSelection(selectedVal) {
+    if (selectedVal.length > 0) {
+      this.playertableData.filteredData = this.dataSource.filteredData;
+      const filterdTabledata = _.filter(this.dataSource.filteredData, (val) => {
+        return _.some(selectedVal, (val2) => {
+          return val2['Position'] === val['Position'];
+        });
+      });
+      this.dataSource.data = filterdTabledata;
+      this.dataSource.filteredData = this.playertableData.filteredData;
+      console.log('Filterd Data from playertableDataplayertableData ', this.playertableData);
+      console.log('Filterd Data from dataSource ', this.dataSource.filteredData);
+    }
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

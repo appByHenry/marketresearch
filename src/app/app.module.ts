@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppMaterialModule} from './app.matmodule';
 import {PlayerSkillsService} from './services/playerskills.service';
+import {DataService} from './services/dropdownSelection.service';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,7 @@ import { AdditionalfiltersDialogComponent} from './navbar/filterdialog/filterdia
 import { PaceComponent} from './navbar/pace/pace.component';
 import { NavSearchComponent} from './navbar/navsearch/navsearch.component';
 import {PlayersDataComponent} from './playertable/playersdata/playersdata.component';
+import {AddcolumnDirective} from './directive/addingcolumn/addcolumn.directive';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import {PlayersDataComponent} from './playertable/playersdata/playersdata.compon
     AdditionalfiltersComponent,
     PaceComponent,
     NavSearchComponent,
-    PlayersDataComponent
+    PlayersDataComponent,
+    AddcolumnDirective
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import {PlayersDataComponent} from './playertable/playersdata/playersdata.compon
     NoopAnimationsModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
-  providers: [PlayerSkillsService],
+  providers: [PlayerSkillsService, DataService],
   bootstrap: [AppComponent, EyefilterComponent]
 })
 export class AppModule { }

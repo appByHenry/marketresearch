@@ -1,7 +1,7 @@
 <div class="position-dd inline-style eachSelect">
   <mat-form-field >
     <div class="customselelctclass">
-      <mat-select class="select-position" placeholder="Player Position" [(value)]="selected" >
+      <mat-select (selectionChange)="selectionChange($event.value)" [formControl]="postions" multiple class="select-position" placeholder="Player Position" [(value)]="selected" >
         <mat-option *ngFor="let position of positions" [value]="position.value">
           {{position.viewValue}}
         </mat-option>

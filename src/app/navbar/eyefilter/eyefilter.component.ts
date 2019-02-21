@@ -1,15 +1,31 @@
 
-import {Component} from '@angular/core';
+import {Component, ViewEncapsulation, Output, Input, EventEmitter, ViewChild, OnChanges, OnInit} from '@angular/core';
+
 import {FormControl} from '@angular/forms';
+
+import {DataService} from '../../services/dropdownSelection.service';
+import {PlayersDataComponent} from '../../playertable/playersdata/playersdata.component';
+
 
 @Component({
   selector: 'app-eyefilter-navbar',
   templateUrl: './eyefilter.component.html',
-  styleUrls: ['eyefilter.component.scss']
+  styleUrls: ['eyefilter.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
+
 export class EyefilterComponent {
-  selected = '';
+
+  @Output() dropdownvalue: EventEmitter<any> = new EventEmitter();
+
+  message: string;
   eyefilters = new FormControl();
-  filterList: string[] = ['weight', 'age', 'Show Power' , 'Finishing', 'Agility'];
+  filterList: string[] = ['Height', 'age', 'Show Power' , 'Finishing', 'Agility'];
+
+  constructor(private data: DataService) {}
+  selectionChange(selectedVal): void {
+    this.dropdownvalue.emit(selectedVal[0]);
+    this.data.changeMessage(selectedVal[0]);
+  }
 }

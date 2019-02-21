@@ -1,5 +1,7 @@
 
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation , Output, Input, EventEmitter} from '@angular/core';
+import {DataService} from '../../services/dropdownSelection.service';
+import {FormControl} from '@angular/forms';
 
 export interface Position {
   value: string;
@@ -12,8 +14,8 @@ export interface Position {
   styleUrls: ['position.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-
 export class PositionComponent {
+  postions = new FormControl();
   selected = '';
   positions: Position[] = [
     { value: 'CAM', viewValue : 'CAM'},
@@ -21,4 +23,13 @@ export class PositionComponent {
     { value: 'GK', viewValue : 'GK'},
     { value: 'MF', viewValue : 'MF'}
   ];
+
+  constructor(private data: DataService) {}
+  selectionChange(selectedVal): void {
+    const positionData = Array.from(selectedVal, (key, val) => this.constructObj(key));
+    this.data.changeMessage(positionData);
+  }
+  constructObj = (positionName) => {
+    return { 'Position' : positionName};
+  }
 }
