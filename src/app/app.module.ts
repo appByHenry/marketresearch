@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AppMaterialModule} from './app.matmodule';
 import {PlayerSkillsService} from './services/playerskills.service';
 import {DataService} from './services/dropdownSelection.service';
+import {UniqueRecordService} from './services/uniqrecords.service';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,7 +56,7 @@ import {AddcolumnDirective} from './directive/addingcolumn/addcolumn.directive';
     NoopAnimationsModule
   ],
   entryComponents: [AdditionalfiltersComponent, AdditionalfiltersDialogComponent],
-  providers: [PlayerSkillsService, DataService],
+  providers: [PlayerSkillsService, DataService, UniqueRecordService],
   bootstrap: [AppComponent, EyefilterComponent]
 })
 export class AppModule { }

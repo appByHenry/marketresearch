@@ -1,5 +1,7 @@
 
 import {Component} from '@angular/core';
+import {DataService} from '../../services/dropdownSelection.service';
+import {FormControl} from '@angular/forms';
 
 export interface Nation {
   value: string;
@@ -13,6 +15,7 @@ export interface Nation {
 })
 
 export class NationComponent {
+  nation = new FormControl();
   selected = '';
   nationality: Nation[] = [
     { value: 'Brazil', viewValue : 'Brazil'},
@@ -20,4 +23,13 @@ export class NationComponent {
     { value: 'UK', viewValue : 'UK'},
     { value: 'France', viewValue : 'France'}
   ];
+
+  constructor(private data: DataService) {}
+  selectionChange(selectedVal): void {
+    const nationData = Array.from(selectedVal, (key, val) => this.constructObj(key));
+    this.data.changeMessage(nationData);
+  }
+  constructObj = (nationName) => {
+    return { 'nationality' : nationName};
+  }
 }

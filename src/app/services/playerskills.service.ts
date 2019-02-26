@@ -14,26 +14,8 @@ export class PlayerSkillsService {
   getSelectedDropdown(): Observable<any> {
     return this.subject.asObservable();
   }
-  // private defaultSelection = new BehaviorSubject('');
-  // currentDropdownSelection = this.defaultSelection.asObservable();
 
-  constructor(private httpClient: HttpClient) {
-    // this.getPlayerSkills().subscribe(data => {
-    //   console.log(data);
-    //   });
-  }
-  // getPlayerSkills(): Observable<any> {
-  //   return this.httpClient.get('playersdata.json');
-  // }
+  constructor(private httpClient: HttpClient) {}
 
-
-  // changeDropdownValue(value: string) {
-  //   this.defaultSelection.next(value);
-  // }
-
-  // updateDropdownSelection() {
-  //   // return this.selectedVal;
-  //
-  // }
 }
 

@@ -7,6 +7,7 @@ import {IPlayerskills} from '../../Interface/playerskills';
 // import Playersinfo from '../../../mockdata/fifaplayers.json';
 import Playersinfo from '../../../mockdata/small_palyers_list.json';
 import {DataService} from '../../services/dropdownSelection.service';
+import {UniqueRecordService} from '../../services/uniqrecords.service';
 import * as _ from 'underscore';
 
 
@@ -28,7 +29,7 @@ export class PlayersDataComponent implements OnInit {
 
 
   message: any;
-  displayedColumns = ['PlayerName', 'Rating', 'Position', 'Moves', 'Weak', 'ATK', 'DEF', 'Pace', 'Shoot', 'Pass', 'Defend', 'Dribbling', 'Physical', 'Height'];
+  displayedColumns = ['PlayerName', 'nationality', 'league' ,'Rating', 'Position', 'Moves', 'Weak', 'ATK', 'DEF', 'Pace', 'Shoot', 'Pass', 'Defend', 'Dribbling', 'Physical', 'Height'];
   dataSource: MatTableDataSource<IPlayerskills>;
   playertableData: MatTableDataSource<IPlayerskills>;
   // let ids:string = [];
@@ -36,13 +37,15 @@ export class PlayersDataComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private uniquefilterservice: UniqueRecordService) {
     const playersData = Array.from(Playersinfo, (key, val) => formatPlayersData(key));
     // console.log(playersData);
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(playersData);
     this.playertableData = new MatTableDataSource(playersData);
+    const testFilterObj = uniquefilterservice.setPlayerData(playersData);
     console.log('In constructor', this.dataSource);
+    //console.log("Filtered Data: ",testFilterObj);
   }
   ngOnInit() {
     this.data.currentMessage.subscribe(message => {
@@ -53,6 +56,8 @@ export class PlayersDataComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
+
+
     console.log('In ngOninti');
   }
   filterBasedonSelection(selectedVal) {
@@ -60,7 +65,7 @@ export class PlayersDataComponent implements OnInit {
       this.playertableData.filteredData = this.dataSource.filteredData;
       const filterdTabledata = _.filter(this.dataSource.filteredData, (val) => {
         return _.some(selectedVal, (val2) => {
-          return val2['Position'] === val['Position'];
+          return val2[Object.keys(val2)[0]] === val[Object.keys(val2)[0]];
         });
       });
       this.dataSource.data = filterdTabledata;

@@ -1,6 +1,8 @@
 
-import {Component, ViewEncapsulation , Output, Input, EventEmitter} from '@angular/core';
+import {Component, ViewEncapsulation , Output, Input, EventEmitter, OnInit} from '@angular/core';
 import {DataService} from '../../services/dropdownSelection.service';
+import {UniqueRecordService} from '../../services/uniqrecords.service';
+
 import {FormControl} from '@angular/forms';
 
 export interface Position {
@@ -23,13 +25,18 @@ export class PositionComponent {
     { value: 'GK', viewValue : 'GK'},
     { value: 'MF', viewValue : 'MF'}
   ];
-
-  constructor(private data: DataService) {}
+  
+  constructor(private data: DataService, private filterservice: UniqueRecordService) {}
   selectionChange(selectedVal): void {
     const positionData = Array.from(selectedVal, (key, val) => this.constructObj(key));
     this.data.changeMessage(positionData);
   }
+
   constructObj = (positionName) => {
     return { 'Position' : positionName};
+  }
+  ngOnInit(){
+    const filterData = this.filterservice.filterDistincitRecords('Position');
+    console.log("Position Filter Data: ", filterData);
   }
 }
