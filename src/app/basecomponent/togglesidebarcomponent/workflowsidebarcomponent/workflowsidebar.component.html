@@ -1,0 +1,75 @@
+<!-- <app-mr-navbar></app-mr-navbar> -->
+<!-- <app-player-overview></app-player-overview> -->
+<div *ngIf="isOpenWorkflow">
+    <div class="sidebar-workflow-wrapper">
+        <div class="sidebar-heading-style">
+            {{sidebarheading}}
+        </div>
+        <div class="w-filters">
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+                    <mat-expansion-panel-header [matTooltipPosition]="tooltipposition" matTooltip="Info about the panel">
+                        <mat-panel-title>
+                            Workflow Filter 1
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Select workflow filter 1.
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <app-mr-navbar-wfilter1></app-mr-navbar-wfilter1>
+                    <!-- <app-mr-navbar></app-mr-navbar> -->
+                    <!-- <app-player-overview></app-player-overview> -->
+
+                    <mat-action-row>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                    </mat-action-row>
+
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                    <mat-expansion-panel-header [matTooltipPosition]="tooltipposition" matTooltip="Info about the panel">
+                        <mat-panel-title>
+                            Workflow Filter 2
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Select workflow filter 2.
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <app-mr-navbar-wfilter2></app-mr-navbar-wfilter2>
+                    <!-- <app-mr-navbar></app-mr-navbar> -->
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+                    <mat-expansion-panel-header [matTooltipPosition]="tooltipposition" matTooltip="Info about the panel">
+                        <mat-panel-title>
+                            Workflow Filter 3
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Select workflow filter 3.
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <app-mr-navbar-wfilter3></app-mr-navbar-wfilter3>
+                    <!-- <app-mr-navbar></app-mr-navbar> -->
+
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">End</button>
+                    </mat-action-row>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="w-filters-count">
+            <div class="workflow-count-heading">
+                <div class="count-display-div"> Total Count for all filters: </div>
+                <div class="count-display-div">{{overallCount}}</div>
+            </div>
+            <div>
+                <app-chips-component></app-chips-component>
+            </div>
+        </div>
+    </div>
+
+</div>

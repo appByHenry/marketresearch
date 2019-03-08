@@ -1,0 +1,21 @@
+<!-- <div class="league-dd inline-style eachSelect">
+    <mat-form-field>
+        <mat-select placeholder="Origin" [(value)]="selected">
+            <mat-option *ngFor="let originval of originlist" [value]="originval.value">
+                {{originval.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div> -->
+
+<div class="origin-dd inline-style eachSelect">
+    <mat-form-field>
+        <div class="customselelctclass">
+            <mat-select (selectionChange)="selectionChange($event.value)" [formControl]="originform" multiple class="select-origin" placeholder="Player origin" [(value)]="selected">
+                <mat-option *ngFor="let origin of originlist" [value]="origin.value">
+                    {{origin.viewValue}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+</div>

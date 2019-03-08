@@ -1,0 +1,66 @@
+.chips-section-heading {
+    /* align-content: center; */
+    /* align-items: center; */
+    display: flex;
+    /* justify-content: center; */
+    padding: 8px 10px;
+    color: rgba(0, 0, 0, .54);
+    background: rgba(0, 0, 0, .03);
+}
+
+.chipsWrapper {
+    margin: 5px 10px;
+    // border: 1px solid rgba(0, 0, 0, .03);
+    // box-shadow: 0 2px 2px rgba(0, 0, 0, .24), 0 0 2px rgba(0, 0, 0, .12);
+    .mat-form-field-underline {
+        // height: 0px !important;
+    }
+    .example-chip-list {
+        width: 100%;
+    }
+    .mat-form-field-infix {
+        border-top: 0px !important;
+    }
+    .mat-form-field-wrapper {
+        // padding-bottom: 4px !important;
+    }
+    .mat-form-field-ripple {
+        background-color: none !important;
+    }
+    .chips-heading-inline {
+        display: inline-block;
+        width: 50%;
+    }
+    .filter-count-div {
+        text-align: end
+    }
+    .icon--text-wrapper {
+        display: inline-block;
+        border: 1px solid;
+        padding: 4px 5px;
+        vertical-align: middle;
+        margin-right: 10px;
+        border-radius: 50%;
+        background: #673ab7;
+        color: white;
+    }
+    .workflowfilter-heading {
+        display: inline-block;
+        width: 89%;
+        font-size: 1.2rem;
+        border-bottom: 1.2px solid #673ab7;
+        padding: 5px 0px;
+        margin-bottom: 10px;
+        border-top: 1.2px solid #673ab7;
+        // border-right: 1.5px solid #673ab7;
+    }
+    .main-filters {
+        padding-left: 10px;
+        border-left: 1.2px solid #673ab7;
+        margin-left: 20px;
+    }
+}
+
+.chipsWrapper:last-child {
+    margin-bottom: 20px;
+}

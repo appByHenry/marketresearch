@@ -1,587 +1,591 @@
-<mat-form-field>
+<!-- <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+</mat-form-field> -->
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8">
+        <!--<ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">-->
+        <!--<th mat-header-cell matHeaderCellDef="">{{column}}</th>-->
+        <!--<td matCellDef="let row">{{row[column]}}</td>-->
+        <!--</ng-container>-->
+        <!---->
+        <ng-container matColumnDef="PlayerName" sticky>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> PlayerName </th>
+            <td mat-cell *matCellDef="let row"> {{row.PlayerName}} </td>
+        </ng-container>
 
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8">
-    <!--<ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">-->
-      <!--<th mat-header-cell matHeaderCellDef="">{{column}}</th>-->
-      <!--<td matCellDef="let row">{{row[column]}}</td>-->
-    <!--</ng-container>-->
-    <!---->
-    <ng-container matColumnDef="PlayerName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> PlayerName </th>
-      <td mat-cell *matCellDef="let row"> {{row.PlayerName}} </td>
-    </ng-container>
+        <ng-container matColumnDef="nationality">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Nationality </th>
+            <td mat-cell *matCellDef="let row"> {{row.nationality}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="nationality">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Nationality </th>
-      <td mat-cell *matCellDef="let row"> {{row.nationality}} </td>
-    </ng-container>
+        <ng-container matColumnDef="league">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> League </th>
+            <td mat-cell *matCellDef="let row"> {{row.league}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="league">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> League </th>
-      <td mat-cell *matCellDef="let row"> {{row.league}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Rating">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Rating </th>
+            <td mat-cell *matCellDef="let row"> {{row.Rating}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Rating">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Rating </th>
-      <td mat-cell *matCellDef="let row"> {{row.Rating}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Position </th>
+            <td mat-cell *matCellDef="let row"> {{row.Position}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Position">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Position </th>
-      <td mat-cell *matCellDef="let row" > {{row.Position}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Moves">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Moves </th>
+            <td mat-cell *matCellDef="let row"> {{row.Moves}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Moves">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Moves </th>
-      <td mat-cell *matCellDef="let row"> {{row.Moves}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Weak">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Weak </th>
+            <td mat-cell *matCellDef="let row"> {{row.Weak}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Weak">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Weak </th>
-      <td mat-cell *matCellDef="let row"> {{row.Weak}} </td>
-    </ng-container>
+        <ng-container matColumnDef="ATK">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> ATK </th>
+            <td mat-cell *matCellDef="let row"> {{row.ATK}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="ATK">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> ATK </th>
-      <td mat-cell *matCellDef="let row"> {{row.ATK}} </td>
-    </ng-container>
+        <ng-container matColumnDef="DEF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> DEF </th>
+            <td mat-cell *matCellDef="let row"> {{row.DEF}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="DEF">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> DEF </th>
-      <td mat-cell *matCellDef="let row" > {{row.DEF}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Pace">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Pace </th>
+            <td mat-cell *matCellDef="let row"> {{row.Pace}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Pace">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Pace </th>
-      <td mat-cell *matCellDef="let row"> {{row.Pace}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Shoot">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Shoot </th>
+            <td mat-cell *matCellDef="let row"> {{row.Shoot}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Shoot">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Shoot </th>
-      <td mat-cell *matCellDef="let row"> {{row.Shoot}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Pass">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Pass </th>
+            <td mat-cell *matCellDef="let row"> {{row.Pass}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Pass">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Pass </th>
-      <td mat-cell *matCellDef="let row"> {{row.Pass}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Defend">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Defend </th>
+            <td mat-cell *matCellDef="let row"> {{row.Defend}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Defend">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Defend </th>
-      <td mat-cell *matCellDef="let row" > {{row.Defend}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Dribbling">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Dribbling </th>
+            <td mat-cell *matCellDef="let row"> {{row.Dribbling}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Dribbling">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Dribbling </th>
-      <td mat-cell *matCellDef="let row"> {{row.Dribbling}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Physical">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Physical </th>
+            <td mat-cell *matCellDef="let row"> {{row.Physical}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Physical">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Physical </th>
-      <td mat-cell *matCellDef="let row"> {{row.Physical}} </td>
-    </ng-container>
+        <ng-container matColumnDef="Height">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Height </th>
+            <td mat-cell *matCellDef="let row"> {{row.Height}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="Height">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header matRipple> Height </th>
-      <td mat-cell *matCellDef="let row"> {{row.Height}} </td>
-    </ng-container>
+        <ng-container matColumnDef="star" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+                <mat-icon>more_vert</mat-icon>
+            </td>
+        </ng-container>
 
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length" >
-        <div class="example-element-detail">
-          <div class="palyercard-margin">
-            <div class="playerbio-container">
-              <div class="margin-divider palyerbio">
-                <mat-card class="">
-                  <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{row.PlayerName}}</mat-card-title>
-                    <mat-card-subtitle>{{row.Position}}</mat-card-subtitle>
-                  </mat-card-header>
-                  <mat-card-content>
-                    <div class="shadowboxwidth shadowstyle">
-                      <div class="ratingdiv-style ratingfontstyle">Overall Rating {{row.Rating}}</div>
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
+                <div class="example-element-detail">
+                    <div class="palyercard-margin">
+                        <div class="playerbio-container">
+                            <div class="margin-divider palyerbio">
+                                <mat-card class="">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image"></div>
+                                        <mat-card-title>{{row.PlayerName}}</mat-card-title>
+                                        <mat-card-subtitle>{{row.Position}}</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <div class="shadowboxwidth shadowstyle">
+                                            <div class="ratingdiv-style ratingfontstyle">Overall Rating {{row.Rating}}</div>
+                                        </div>
+                                        <div class="mat-left-chips inline-style">
+
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Pace}} Pace
+                                            </div>
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Shoot}} Shoot
+                                            </div>
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Pass}} Pass
+                                            </div>
+                                        </div>
+                                        <div class="mat-right-chips inline-style">
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Defend}} Defend
+                                            </div>
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Dribbling}} Dribbling
+                                            </div>
+                                            <div class="shadowbox shadowstyle">
+                                                {{row.Physical}} Physical
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                            <div class="biodata-div">
+                                <div class="shadowstyle">
+                                    <mat-tab-group class="example-stretched-tabs mat-elevation-z4">
+                                        <mat-tab label="Info">
+                                            <div class="outer-div-bio">
+                                                <div class="margin-space">
+                                                    <span>Full Name: </span>
+                                                    <span> {{row.player_extended_name}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Club: </span>
+                                                    <span> {{row.club}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Nation: </span>
+                                                    <span> {{row.nationality}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>League: </span>
+                                                    <span> {{row.league}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Skills: </span>
+                                                    <span> {{row.skill_moves}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Weak Foot: </span>
+                                                    <span> {{row.weak_foot}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Int'l Rep: </span>
+                                                    <span> {{row.intl_rep}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Height: </span>
+                                                    <span> {{row.Height}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Weight: </span>
+                                                    <span> {{row.weight}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Revision: </span>
+                                                    <span> {{row.revision}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Def WR: </span>
+                                                    <span> {{row.DEF}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>ATT WR: </span>
+                                                    <span> {{row.ATK}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Added On: </span>
+                                                    <span> {{row.added_date}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Origin: </span>
+                                                    <span> {{row.origin}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Age: </span>
+                                                    <span> {{row.age}} </span>
+                                                </div>
+                                            </div>
+
+                                        </mat-tab>
+                                        <mat-tab label="Traits">
+                                            <div class="outer-div-bio">
+                                                <div class="margin-space">
+                                                    <span>Full Name: </span>
+                                                    <span> {{row.player_extended_name}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Club: </span>
+                                                    <span> {{row.club}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Nation: </span>
+                                                    <span> {{row.nationality}} </span>
+                                                </div>
+                                            </div>
+                                        </mat-tab>
+                                        <mat-tab label="Specialities">
+                                            <div class="outer-div-bio">
+                                                <div class="margin-space">
+                                                    <span>Full Name: </span>
+                                                    <span> {{row.player_extended_name}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Club: </span>
+                                                    <span> {{row.club}} </span>
+                                                </div>
+                                                <div class="margin-space">
+                                                    <span>Nation: </span>
+                                                    <span> {{row.nationality}} </span>
+                                                </div>
+                                            </div>
+                                        </mat-tab>
+                                    </mat-tab-group>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="palyerskills-container">
+                            <div>
+                                <div class="margin-divider xbox-div inline-style center-align-div">
+                                    <mat-card class="example-card">
+                                        <mat-card-header class="center-header">
+                                            <mat-card-title>xBox</mat-card-title>
+                                        </mat-card-header>
+                                        <mat-divider></mat-divider>
+                                        <mat-card-content>
+                                            <div class="example-ripple-container">
+                                                <div class="each-price"><span>Last Bid: </span><span> {{row.xbox_last}} </span></div>
+                                                <div class="each-price"><span>Min. Bid: </span><span> {{row.xbox_min}} </span></div>
+                                                <div class="each-price"><span>Max. Bid: </span><span> {{row.xbox_max}} </span></div>
+                                            </div>
+                                            <mat-divider></mat-divider>
+                                            <div class="example-ripple-container"><span>PRP: </span><span> {{row.xbox_prp}}% </span></div>
+                                        </mat-card-content>
+                                    </mat-card>
+
+                                </div>
+                                <div class="margin-divider ps4-div inline-style center-align-div">
+                                    <mat-card class="example-card">
+                                        <mat-card-header class="center-header">
+                                            <mat-card-title>PS4</mat-card-title>
+                                        </mat-card-header>
+                                        <mat-divider></mat-divider>
+                                        <mat-card-content>
+                                            <div class="example-ripple-container">
+                                                <div class="each-price"><span>Last Bid: </span><span> {{row.ps4_last}} </span></div>
+                                                <div class="each-price"><span>Min. Bid: </span><span> {{row.ps4_min}} </span></div>
+                                                <div class="each-price"><span>Max. Bid: </span><span> {{row.ps4_max}} </span></div>
+                                            </div>
+                                            <mat-divider></mat-divider>
+                                            <div class="example-ripple-container"><span>PRP: </span><span> {{row.ps4_prp}}% </span></div>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </div>
+                                <div class="margin-divider pc-div inline-style center-align-div">
+                                    <mat-card class="example-card">
+                                        <mat-card-header class="center-header">
+                                            <mat-card-title>PC</mat-card-title>
+                                        </mat-card-header>
+                                        <mat-divider></mat-divider>
+                                        <mat-card-content>
+                                            <div class="example-ripple-container">
+                                                <div class="each-price"><span>Last Bid: </span><span> {{row.pc_last}} </span></div>
+                                                <div class="each-price"><span>Min. Bid: </span><span> {{row.pc_min}} </span></div>
+                                                <div class="each-price"><span>Max. Bid: </span><span> {{row.pc_max}} </span></div>
+                                            </div>
+                                            <mat-divider></mat-divider>
+                                            <div class="example-ripple-container"><span>PRP: </span><span> {{row.pc_prp}}% </span></div>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </div>
+                            </div>
+                            <div class="top-margin">
+                                <div>
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Pace</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Pace}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Pace}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Sprint Speed</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pace_sprint_speed}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Acceleration</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pace_acceleration}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Shooting</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Shoot}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Shoot}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Positioning</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_positioning}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Finishing</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_finishing}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Shot Power</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_shot_power}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Long Shots</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_long_shots}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Volleys</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_volleys}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Penalties</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.shoot_penalties}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Passing</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Pass}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Pass}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Vision</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_vision}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Crossing</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_crossing}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Free Kick</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_free_kick}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Short Pass</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_short}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Long Pass</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_long}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Curve Pass</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.pass_curve}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="top-margin">
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Dribbling</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Dribbling}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Dribbling}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Agility</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_agility}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Balance</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_balance}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Reactions</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_reactions}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Ball Control</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_ball_control}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Dribbling</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_dribbling}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Composure</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.drib_composure}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Defending</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Defend}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Defend}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Interceptions</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.def_interceptions}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Heading</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.def_heading}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Marking</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.def_marking}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Standing Tackle</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.def_stand_tackle}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Slide Tackle</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.def_slid_tackle}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="shadowstyle player-skills-bio inline-style">
+                                        <div class="outer-div-bio">
+                                            <div class="skill-header-font-style margin-space inline-style skill-header">
+                                                <span class="">Physical</span>
+                                            </div>
+                                            <div class="skill-header-font-style skill-rating-style inline-style">
+                                                <span> {{row.Physical}} </span>
+                                            </div>
+                                            <div class="skill-progress">
+                                                <mat-progress-bar mode="determinate" value="{{row.Physical}}"></mat-progress-bar>
+                                            </div>
+                                            <div class="space-divider"></div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Jumping</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.phys_jumping}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Stamina</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.phys_stamina}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Strength</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.phys_strength}} </span>
+                                            </div>
+                                            <div class="margin-space inline-style skill-header">
+                                                <span class="">Aggression</span>
+                                            </div>
+                                            <div class="skill-rating-style inline-style">
+                                                <span> {{row.phys_aggression}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div class="mat-left-chips inline-style">
-
-                      <div class="shadowbox shadowstyle">
-                        {{row.Pace}} Pace
-                      </div>
-                      <div class="shadowbox shadowstyle">
-                        {{row.Shoot}} Shoot
-                      </div>
-                      <div class="shadowbox shadowstyle">
-                        {{row.Pass}} Pass
-                      </div>
-                    </div>
-                    <div class="mat-right-chips inline-style">
-                      <div class="shadowbox shadowstyle">
-                        {{row.Defend}} Defend
-                      </div>
-                      <div class="shadowbox shadowstyle">
-                        {{row.Dribbling}} Dribbling
-                      </div>
-                      <div class="shadowbox shadowstyle">
-                        {{row.Physical}} Physical
-                      </div>
-                    </div>
-                  </mat-card-content>
-                </mat-card>
-              </div>
-              <div class="biodata-div">
-                <div class="shadowstyle">
-                  <mat-tab-group class="example-stretched-tabs mat-elevation-z4">
-                    <mat-tab label="Info">
-                      <div class="outer-div-bio">
-                        <div class="margin-space">
-                          <span>Full Name: </span>
-                          <span> {{row.player_extended_name}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Club: </span>
-                          <span> {{row.club}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Nation: </span>
-                          <span> {{row.nationality}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>League: </span>
-                          <span> {{row.league}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Skills: </span>
-                          <span> {{row.skill_moves}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Weak Foot: </span>
-                          <span> {{row.weak_foot}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Int'l Rep: </span>
-                          <span> {{row.intl_rep}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Height: </span>
-                          <span> {{row.Height}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Weight: </span>
-                          <span> {{row.weight}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Revision: </span>
-                          <span> {{row.revision}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Def WR: </span>
-                          <span> {{row.DEF}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>ATT WR: </span>
-                          <span> {{row.ATK}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Added On: </span>
-                          <span> {{row.added_date}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Origin: </span>
-                          <span> {{row.origin}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Age: </span>
-                          <span> {{row.age}} </span>
-                        </div>
-                      </div>
-
-                    </mat-tab>
-                    <mat-tab label="Traits">
-                      <div class="outer-div-bio">
-                        <div class="margin-space">
-                          <span>Full Name: </span>
-                          <span> {{row.player_extended_name}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Club: </span>
-                          <span> {{row.club}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Nation: </span>
-                          <span> {{row.nationality}} </span>
-                        </div>
-                      </div>
-                    </mat-tab>
-                    <mat-tab label="Specialities">
-                      <div class="outer-div-bio">
-                        <div class="margin-space">
-                          <span>Full Name: </span>
-                          <span> {{row.player_extended_name}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Club: </span>
-                          <span> {{row.club}} </span>
-                        </div>
-                        <div class="margin-space">
-                          <span>Nation: </span>
-                          <span> {{row.nationality}} </span>
-                        </div>
-                      </div>
-                    </mat-tab>
-                  </mat-tab-group>
-
 
                 </div>
-              </div>
-            </div>
-            <div class="palyerskills-container">
-              <div>
-                <div class="margin-divider xbox-div inline-style center-align-div">
-                  <mat-card class="example-card">
-                    <mat-card-header class="center-header">
-                      <mat-card-title>xBox</mat-card-title>
-                    </mat-card-header>
-                    <mat-divider></mat-divider>
-                    <mat-card-content>
-                      <div class="example-ripple-container">
-                        <div class="each-price"><span>Last Bid: </span><span> {{row.xbox_last}} </span></div>
-                        <div class="each-price"><span>Min. Bid: </span><span> {{row.xbox_min}} </span></div>
-                        <div class="each-price"><span>Max. Bid: </span><span> {{row.xbox_max}} </span></div>
-                      </div>
-                      <mat-divider></mat-divider>
-                      <div class="example-ripple-container" ><span>PRP: </span><span> {{row.xbox_prp}}% </span></div>
-                    </mat-card-content>
-                  </mat-card>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row" [class.example-expanded-row]="expandedElement === row" (click)="expandedElement = expandedElement === row ? null : row">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" [@detailExpand]="row == expandedElement ? 'expanded' : 'collapsed'"></tr>
+    </table>
 
-                </div>
-                <div class="margin-divider ps4-div inline-style center-align-div">
-                  <mat-card class="example-card">
-                    <mat-card-header class="center-header">
-                      <mat-card-title>PS4</mat-card-title>
-                    </mat-card-header>
-                    <mat-divider></mat-divider>
-                    <mat-card-content>
-                      <div class="example-ripple-container">
-                        <div class="each-price"><span>Last Bid: </span><span> {{row.ps4_last}} </span></div>
-                        <div class="each-price"><span>Min. Bid: </span><span> {{row.ps4_min}} </span></div>
-                        <div class="each-price"><span>Max. Bid: </span><span> {{row.ps4_max}} </span></div>
-                      </div>
-                      <mat-divider></mat-divider>
-                      <div class="example-ripple-container"><span>PRP: </span><span> {{row.ps4_prp}}% </span></div>
-                    </mat-card-content>
-                  </mat-card>
-                </div>
-                <div class="margin-divider pc-div inline-style center-align-div">
-                  <mat-card class="example-card">
-                    <mat-card-header class="center-header">
-                      <mat-card-title>PC</mat-card-title>
-                    </mat-card-header>
-                    <mat-divider></mat-divider>
-                    <mat-card-content>
-                      <div class="example-ripple-container">
-                        <div class="each-price"><span>Last Bid: </span><span> {{row.pc_last}} </span></div>
-                        <div class="each-price"><span>Min. Bid: </span><span> {{row.pc_min}} </span></div>
-                        <div class="each-price"><span>Max. Bid: </span><span> {{row.pc_max}} </span></div>
-                      </div>
-                      <mat-divider></mat-divider>
-                      <div class="example-ripple-container"><span>PRP: </span><span> {{row.pc_prp}}% </span></div>
-                    </mat-card-content>
-                  </mat-card>
-                </div>
-              </div>
-              <div class="top-margin">
-                <div>
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Pace</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Pace}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Pace}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Sprint Speed</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pace_sprint_speed}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Acceleration</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pace_acceleration}} </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Shooting</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Shoot}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Shoot}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Positioning</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_positioning}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Finishing</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_finishing}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Shot Power</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_shot_power}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Long Shots</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_long_shots}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Volleys</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_volleys}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Penalties</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.shoot_penalties}} </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Passing</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Pass}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Pass}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Vision</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_vision}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Crossing</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_crossing}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Free Kick</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_free_kick}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Short Pass</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_short}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Long Pass</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_long}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Curve Pass</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.pass_curve}} </span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class="top-margin">
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Dribbling</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Dribbling}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Dribbling}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Agility</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_agility}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Balance</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_balance}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Reactions</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_reactions}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Ball Control</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_ball_control}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Dribbling</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_dribbling}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Composure</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.drib_composure}} </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Defending</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Defend}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Defend}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Interceptions</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.def_interceptions}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Heading</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.def_heading}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Marking</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.def_marking}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Standing Tackle</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.def_stand_tackle}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Slide Tackle</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.def_slid_tackle}} </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="shadowstyle player-skills-bio inline-style">
-                    <div class="outer-div-bio">
-                      <div class="skill-header-font-style margin-space inline-style skill-header">
-                        <span class="">Physical</span>
-                      </div>
-                      <div class="skill-header-font-style skill-rating-style inline-style">
-                        <span> {{row.Physical}} </span>
-                      </div>
-                      <div class="skill-progress">
-                        <mat-progress-bar mode="determinate" value="{{row.Physical}}"></mat-progress-bar>
-                      </div>
-                      <div class="space-divider"></div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Jumping</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.phys_jumping}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Stamina</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.phys_stamina}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Strength</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.phys_strength}} </span>
-                      </div>
-                      <div class="margin-space inline-style skill-header">
-                        <span class="">Aggression</span>
-                      </div>
-                      <div class="skill-rating-style inline-style">
-                        <span> {{row.phys_aggression}} </span>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"
-        [class.example-expanded-row]="expandedElement === row"
-        (click)="expandedElement = expandedElement === row ? null : row">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" [@detailExpand] ="row == expandedElement ? 'expanded' : 'collapsed'"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[500, 400, 300, 200, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 75, 100]"></mat-paginator>
 </div>
 
 

@@ -1,0 +1,29 @@
+<div class="sidebar-buttons">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="hamburger-font-size custom-iconstyle">dehaze</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="expandable-menu">
+        <div class="background-style-div">
+
+        </div>
+        <button mat-menu-item>
+            <app-profile-toggle-button #profileButton (click)="toggleSideBar('profile')"></app-profile-toggle-button>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <app-workflow-toggle-button #workflowButton (click)="toggleSideBar('workflow')"></app-workflow-toggle-button>
+        </button>
+    </mat-menu>
+</div>
+<div class="sidebar-content">
+    <div style="text-align:center" class="logo-text">
+        <div class="main-logo-div">
+        </div>
+        <div class="main-page-heading">
+
+        </div>
+    </div>
+
+    <app-profile-sidebar-component></app-profile-sidebar-component>
+    <app-workflow-sidebar-component></app-workflow-sidebar-component>
+</div>

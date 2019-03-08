@@ -1,10 +1,68 @@
-
-
-.mat-dialog-container{
-  min-width: 1024px;
+@import 'material-design-icons/iconfont/material-icons.css';
+@import '~@angular/material/theming';
+// always include only once per project
+@include mat-core();
+// import our custom theme
+@import '../assets/theme.scss';
+// specify theme class eg: <body class="my-theme"> ... </body>
+.my-theme {
+    // use our theme with angular-material-theme mixin
+    @include angular-material-theme($my-theme);
 }
 
-.main-app-style{
-  max-width: 1280px;
-  margin: 0 auto 100px;
+.mat-dialog-container {
+    min-width: 1024px;
+}
+
+.logo-text {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.main-app-style {
+    // max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #7d7d7d;
+}
+
+.sidebar-content-background {
+    // background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.89)), url('../assets/logo-adobe-analytics.png');
+    width: 100%;
+    height: 85vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.logo-style {
+    width: 100%;
+}
+
+.main-logo-div,
+.main-page-heading {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-logo-div {
+    width: 10%;
+}
+
+.main-page-heading {
+    // width: 88%;
+    font-size: 2rem;
+    font-family: sans-serif;
+    color: #7d7d7d;
+}
+
+.content-div-spacing {
+    margin-top: 20px;
+}
+
+.footer-style-application {
+    padding: 20px 0px;
+    text-align: center;
+    background-color: #673ab7;
+    color: white;
 }

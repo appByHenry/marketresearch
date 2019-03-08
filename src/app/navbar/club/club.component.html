@@ -1,10 +1,21 @@
-<div class="league-dd inline-style eachSelect">
-  <mat-form-field>
-    <mat-select placeholder="Club" [(value)]="selected">
-      <mat-option *ngFor="let club of clubs" [value]="club.value">
-        {{club.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<!-- <div class="league-dd inline-style eachSelect">
+    <mat-form-field>
+        <mat-select placeholder="Club" [(value)]="selected">
+            <mat-option *ngFor="let club of clubs" [value]="club.value">
+                {{club.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
+</div> -->
+<div class="club-dd inline-style eachSelect">
+    <mat-form-field>
+        <div class="customselelctclass">
+            <mat-select (selectionChange)="selectionChange($event.value)" [formControl]="clubform" multiple class="select-club" placeholder="Player club" [(value)]="selected">
+                <mat-option *ngFor="let club of clubs" [value]="club.value">
+                    {{club.viewValue}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
 </div>

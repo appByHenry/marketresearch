@@ -1,0 +1,108 @@
+<!-- <div class="chipsWrapper" *ngFor="let item of chipsFilters | keyvalue">
+    <div class="chips-section-heading">
+        <div class="chips-heading-inline">{{item.key}}</div>
+        <div class="chips-heading-inline filter-count-div">{{item.value.count}}</div>
+    </div>
+    
+    <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let eachfilter of item.value.filters | keyvalue" [selectable]="selectable" [removable]="removable" (removed)="removeFilter(eachitem.key)">
+                {{eachfilter.key}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+    </mat-form-field>
+</div> -->
+<div class="chipsWrapper" *ngIf="isFilterEnable1">
+    <div>
+        <div class="icon--text-wrapper">
+            <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="workflowfilter-heading">
+            <span>Workflow filter 1</span>
+        </div>
+    </div>
+    <div *ngFor="let item of chipsFilters1 | keyvalue">
+        <div class="main-filters">
+            <div class="chips-section-heading">
+                <div #filterTypeDropdown class="chips-heading-inline">{{item.key}}</div>
+                <div class="chips-heading-inline filter-count-div">{{item.value.count}}</div>
+            </div>
+            <!-- Key: <b>{{item.key}}</b> and <b></b> -->
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let eachfilter of item.value.filters | keyvalue" [selectable]="selectable" [removable]="removable" (removed)="removeFilter(eachfilter.key, filterTypeDropdown)">
+                        {{eachfilter.key}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div class="chipsWrapper" *ngIf="isFilterEnable2">
+    <div>
+        <div class="icon--text-wrapper">
+            <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="workflowfilter-heading">
+            <span>Workflow filter 2</span>
+        </div>
+    </div>
+    <div *ngFor="let item of chipsFilters2 | keyvalue">
+        <div class="main-filters">
+            <div class="chips-section-heading">
+                <div #filterTypeDropdown class="chips-heading-inline">{{item.key}}</div>
+                <div class="chips-heading-inline filter-count-div">{{item.value.count}}</div>
+            </div>
+            <!-- Key: <b>{{item.key}}</b> and <b></b> -->
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let eachfilter of item.value.filters | keyvalue" [selectable]="selectable" [removable]="removable" (removed)="removeFilter(eachfilter.key, filterTypeDropdown)">
+                        {{eachfilter.key}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+    </div>
+</div>
+
+<div class="chipsWrapper" *ngIf="isFilterEnable3">
+    <div>
+        <div class="icon--text-wrapper">
+            <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="workflowfilter-heading">
+            <span>Workflow filter 3</span>
+        </div>
+    </div>
+    <div *ngFor="let item of chipsFilters3 | keyvalue">
+        <div class="main-filters">
+            <div class="chips-section-heading">
+                <div #filterTypeDropdown class="chips-heading-inline">{{item.key}}</div>
+                <div class="chips-heading-inline filter-count-div">{{item.value.count}}</div>
+            </div>
+            <!-- Key: <b>{{item.key}}</b> and <b></b> -->
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let eachfilter of item.value.filters | keyvalue" [selectable]="selectable" [removable]="removable" (removed)="removeFilter(eachfilter.key, filterTypeDropdown)">
+                        {{eachfilter.key}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+    </div>
+</div>
+
+<!-- 
+<div *ngFor="let item of testObject2| keyvalue">
+        Key: <b>{{item.key}} -</b> <b>- {{item.value.count}}</b>
+      <div *ngFor="let filter of item.value.filters | keyvalue " >
+        <b>{{filter.key}}</b>
+      </div>
+    </div> -->

@@ -1,19 +1,20 @@
 <div class="position-dd inline-style eachSelect">
-  <!-- <mat-form-field>
+    <!-- <mat-form-field>
     <mat-select placeholder="Nationality" [(value)]="selected">
       <mat-option *ngFor="let nation of nationality" [value]="nation.value">
         {{nation.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field> -->
-  <mat-form-field >
-    <div class="customselelctclass">
-      <mat-select (selectionChange)="selectionChange($event.value)" [formControl]="nation" multiple class="select-nation" placeholder="Player Nationality" [(value)]="selected" >
-        <mat-option *ngFor="let nation of nationality" [value]="nation.value">
-          {{nation.viewValue}}
-        </mat-option>
-      </mat-select>
-    </div>
-  </mat-form-field>
-  
+
+    <mat-form-field>
+        <div class="customselelctclass">
+            <mat-select (selectionChange)="selectionChangeNation($event.value)" [formControl]="nation" multiple class="select-nation" placeholder="Player Nationality" [(value)]="selected">
+                <mat-option *ngFor="let nation of nationality" [value]="nation.value">
+                    {{nation.viewValue}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+
 </div>

@@ -1,0 +1,18 @@
+<div class="quality-dd inline-style eachSelect">
+    <!-- <mat-form-field>
+        <mat-select placeholder="Quality" [(value)]="selected">
+            <mat-option *ngFor="let quality of qualities" [value]="quality.value">
+                {{quality.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field> -->
+    <mat-form-field>
+        <div class="customselelctclass">
+            <mat-select (selectionChange)="selectionChange($event.value)" [formControl]="qualityform" multiple class="select-quality" placeholder="Player quality" [(value)]="selected">
+                <mat-option *ngFor="let quality of qualities" [value]="quality.value">
+                    {{quality.viewValue}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </mat-form-field>
+</div>
